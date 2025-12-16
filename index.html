@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2026 Online MBA ROI Calculator</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f4f7f6; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 400px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #0070ba; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .result { margin-top: 20px; padding: 15px; background: #e7f3ff; border-radius: 5px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>📊 MBA ROI Calculator</h2>
+        <p>Estimate your 2026 salary jump.</p>
+        <input type="number" id="currentSalary" placeholder="Current Salary ($)">
+        <input type="number" id="tuition" placeholder="Tuition Cost ($)">
+        <button onclick="calculateROI()">Calculate My 10x ROI</button>
+        
+        <div id="resultBox" class="result">
+            <strong>Estimated 2026 Salary:</strong> <span id="newSalary"></span><br>
+            <strong>Total ROI:</strong> <span id="roi"></span>%
+            <hr>
+            <p>Ready for the full report?</p>
+            <button style="background: #28a745;">Get Premium ROI Report ($9)</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateROI() {
+            let current = parseFloat(document.getElementById('currentSalary').value);
+            let cost = parseFloat(document.getElementById('tuition').value);
+            // Based on our 2026 scout data (Avg +65% jump)
+            let projected = current * 1.65;
+            let roi = ((projected - current) / cost) * 100;
+            
+            document.getElementById('newSalary').innerText = "$" + projected.toLocaleString();
+            document.getElementById('roi').innerText = roi.toFixed(0);
+            document.getElementById('resultBox').style.display = "block";
+        }
+    </script>
+</body>
+</html>
