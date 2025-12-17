@@ -4,8 +4,7 @@ import requests
 DISCORD_URL = os.getenv('DISCORD_WEBHOOK_URL')
 SERP_KEY = os.getenv('SERP_API_KEY')
 
-def spy_on_competition():
-    # Searching for what people see when they look for Online MBAs
+def get_intelligence():
     params = {
         "engine": "google",
         "q": "best accelerated online mba programs 2026",
@@ -16,26 +15,32 @@ def spy_on_competition():
         response = requests.get("https://serpapi.com/search", params=params)
         results = response.json().get('organic_results', [])
         
-        report = "🕵️ **COMPETITOR INTELLIGENCE REPORT: ONLINE MBA** 🕵️\n"
-        report += "Targeting: *Accelerated / High ROI* \n\n"
+        # Start the Report
+        report = "📊 **10X INTELLIGENCE: MARKET PENETRATION REPORT** 📊\n"
+        report += "--- \n"
         
         for result in results[:3]:
             title = result.get('title')
-            link = result.get('link')
-            snippet = result.get('snippet', 'No description available.')
+            snippet = result.get('snippet', '')
             
-            report += f"🏫 **Top Competitor:** {title}\n"
-            report += f"🔗 **Link:** {link}\n"
-            report += f"📝 **Their Hook:** {snippet[:100]}...\n\n"
+            # Logic to find the "Weakness" in their hook
+            if "accredited" in snippet.lower():
+                strategy = "Target 'Speed to Completion' instead."
+            elif "rankings" in snippet.lower():
+                strategy = "Target 'Salary ROI' instead."
+            else:
+                strategy = "Standard SEO competition; use high-conversion video."
+
+            report += f"🏫 **Competitor:** {title}\n"
+            report += f"💡 **Counter-Strategy:** {strategy}\n\n"
         
-        report += "💡 **Scout Insight:** If they all mention 'Accreditation,' we should focus on 'Salary Increase' to stand out."
         return report
     except Exception as e:
-        return f"⚠️ Spy Error: {str(e)}"
+        return f"⚠️ Intel Error: {str(e)}"
 
 def send_to_discord(text):
     requests.post(DISCORD_URL, json={"content": text})
 
 if __name__ == "__main__":
-    intelligence = spy_on_competition()
-    send_to_discord(intelligence)
+    intelligence_report = get_intelligence()
+    send_to_discord(intelligence_report)
