@@ -27,4 +27,4 @@ jobs:
           SERP_API_KEY: ${{ secrets.SERP_API_KEY }}
           PAYPAL_CLIENT_ID: ${{ secrets.PAYPAL_CLIENT_ID }}
           PAYPAL_SECRET: ${{ secrets.PAYPAL_SECRET }}
-        run: python pay_test.py
+        run: python scout.py
