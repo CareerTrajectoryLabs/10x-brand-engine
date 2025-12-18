@@ -893,7 +893,7 @@
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // Populate hidden fields with calculation data
+                    // Populate hidden fields with calculation data for your email records
                     document.getElementById('hiddenSalary').value = formatCurrency(calculationData.currentSalary);
                     document.getElementById('hiddenTuition').value = formatCurrency(calculationData.tuition);
                     document.getElementById('hiddenProjected').value = formatCurrency(calculationData.projected);
@@ -901,10 +901,13 @@
                     document.getElementById('hiddenBreakEven').value = calculationData.breakEvenMonths + ' months';
                     document.getElementById('hiddenFiveYear').value = formatCurrency(calculationData.fiveYearGain);
                     
+                    // Get user email and name for personalization
+                    const userEmail = document.getElementById('userEmail').value;
+                    
                     // Get form data
                     const formData = new FormData(form);
                     
-                    // Submit to Formspree
+                    // Submit to Formspree (captures lead in your email list)
                     fetch(form.action, {
                         method: 'POST',
                         body: formData,
@@ -912,12 +915,29 @@
                             'Accept': 'application/json'
                         }
                     }).then(response => {
-                        // SUCCESS: Force immediate jump to the Sales Page
-                        window.location.href = "offer.html";
+                        // SUCCESS: Redirect to the FREE Executive Brief with their personalized data
+                        const briefUrl = `executive-brief.html?` + 
+                            `current=${calculationData.currentSalary}` +
+                            `&tuition=${calculationData.tuition}` +
+                            `&projected=${calculationData.projected}` +
+                            `&growth=${calculationData.growth}` +
+                            `&breakeven=${calculationData.breakEvenMonths}` +
+                            `&fiveyear=${calculationData.fiveYearGain}` +
+                            `&email=${encodeURIComponent(userEmail)}`;
+                        
+                        window.location.href = briefUrl;
                     }).catch(error => {
-                        // FAIL-SAFE: If the internet glitches, still send them to the offer
+                        // FAIL-SAFE: If Formspree fails, still show them the brief
                         console.error('Submission error:', error);
-                        window.location.href = "offer.html";
+                        const briefUrl = `executive-brief.html?` + 
+                            `current=${calculationData.currentSalary}` +
+                            `&tuition=${calculationData.tuition}` +
+                            `&projected=${calculationData.projected}` +
+                            `&growth=${calculationData.growth}` +
+                            `&breakeven=${calculationData.breakEvenMonths}` +
+                            `&fiveyear=${calculationData.fiveYearGain}`;
+                        
+                        window.location.href = briefUrl;
                     });
                 });
             }
@@ -925,4 +945,3 @@
     </script>
 </body>
 </html>
-
