@@ -912,18 +912,12 @@
                             'Accept': 'application/json'
                         }
                     }).then(response => {
-                        if (response.ok) {
-                            // Show success message
-                            document.getElementById('emailCaptureForm').style.display = 'none';
-                            document.getElementById('successMessage').classList.add('show');
-                            
-                            // Reset form
-                            form.reset();
-                        } else {
-                            alert('Oops! There was a problem submitting your request. Please try again.');
-                        }
+                        // SUCCESS: Force immediate jump to the Sales Page
+                        window.location.href = "offer.html";
                     }).catch(error => {
-                        alert('Oops! There was a problem submitting your request. Please try again.');
+                        // FAIL-SAFE: If the internet glitches, still send them to the offer
+                        console.error('Submission error:', error);
+                        window.location.href = "offer.html";
                     });
                 });
             }
