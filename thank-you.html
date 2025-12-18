@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Your Report is Ready</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            color: #ffffff;
+        }
+        
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .check-circle {
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        @keyframes scaleIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <div class="grain"></div>
+    
+    <!-- Header -->
+    <header class="relative z-10 border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 py-6">
+            <div class="serif text-2xl font-bold">
+                <span class="text-white">Career</span>
+                <span class="bg-gradient-to-r from-red-900 to-red-600 bg-clip-text text-transparent">Trajectory</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Success Section -->
+    <div class="relative z-10 min-h-screen flex items-center justify-center px-6 py-16">
+        <div class="max-w-2xl mx-auto">
+            
+            <!-- Success Icon -->
+            <div class="check-circle mb-8 text-center">
+                <svg class="w-20 h-20 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
+                </svg>
+            </div>
+            
+            <!-- Headline -->
+            <h1 class="serif text-5xl font-black mb-4 text-center">
+                Purchase Confirmed
+            </h1>
+            
+            <p class="text-xl text-gray-300 mb-12 text-center">
+                Your 2026 Career Trajectory Labs Report is being delivered
+            </p>
+            
+            <!-- Delivery Notification -->
+            <div class="bg-gradient-to-r from-green-900/20 to-green-700/20 border border-green-700 rounded-lg p-6 mb-8">
+                <div class="flex items-start gap-4">
+                    <svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <div>
+                        <h2 class="font-bold text-lg text-green-400 mb-2">Check Your Email Inbox</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Your personalized 25-page report has been sent to your email address and should arrive within the next 10 minutes. If you don't see it in your inbox, please check your spam or promotions folder.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- What You'll Receive -->
+            <div class="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
+                <h2 class="font-bold text-xl mb-6 text-center">What's Included</h2>
+                
+                <div class="space-y-5">
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-r from-red-900 to-red-600 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold mb-1">Complete 25-Page Strategic Report</div>
+                            <div class="text-gray-400 text-sm">Full AI-MBA Matrix, all 10 critical skills, and personalized 3-year roadmap</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-r from-red-900 to-red-600 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold mb-1">Exclusive Bonus Materials</div>
+                            <div class="text-gray-400 text-sm">LinkedIn optimization guide, credential ROI calculator, and 2026 job market calendar</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-r from-red-900 to-red-600 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold mb-1">Permanent Download Access</div>
+                            <div class="text-gray-400 text-sm">Your download link never expires - access your materials anytime</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Getting Started -->
+            <div class="bg-gradient-to-r from-red-900/20 to-red-600/20 border border-red-900 rounded-lg p-8 mb-8">
+                <h2 class="font-bold text-xl mb-4">Getting Started</h2>
+                <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                    We recommend starting with your personalized 3-year roadmap on page 15. This section maps your specific path from your current compensation to $200K+ based on your individual situation and goals.
+                </p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Next, review the 10 Critical AI Skills analysis starting on page 8 to understand which competencies to prioritize and which to avoid in the current market.
+                </p>
+            </div>
+            
+            <!-- Support -->
+            <div class="bg-gray-900 border border-gray-800 rounded-lg p-6 mb-8">
+                <h3 class="font-bold mb-4">Email Not Arriving?</h3>
+                <ol class="text-sm text-gray-300 space-y-3 ml-5 list-decimal">
+                    <li>Check your spam, junk, or promotions folder</li>
+                    <li>Search your inbox for "Career Trajectory Labs" or "2026 Report"</li>
+                    <li>Verify the email address used during checkout</li>
+                    <li>Contact us at <a href="mailto:support@careertrajectorylabs.com" class="text-red-400 hover:text-red-300 underline">support@careertrajectorylabs.com</a> with your PayPal transaction ID</li>
+                </ol>
+                <p class="mt-4 text-sm text-gray-400">We'll manually send your report and resolve any delivery issues promptly.</p>
+            </div>
+            
+            <!-- 30-Day Guarantee Reminder -->
+            <div class="border border-gray-800 rounded-lg p-6 mb-8 text-center">
+                <h3 class="font-bold mb-2">30-Day Money-Back Guarantee</h3>
+                <p class="text-sm text-gray-400">
+                    Review the complete report. If it doesn't meet your expectations, email us within 30 days for a full refund - no questions asked.
+                </p>
+            </div>
+            
+            <!-- Back to Home -->
+            <div class="text-center pt-8 border-t border-gray-800">
+                <a href="index.html" class="text-gray-500 hover:text-gray-300 text-sm transition">
+                    ← Return to MBA ROI Calculator
+                </a>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 py-8 text-center text-sm text-gray-500">
+            <p>&copy; 2026 Career Trajectory Labs. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
