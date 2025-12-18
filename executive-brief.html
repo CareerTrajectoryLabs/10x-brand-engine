@@ -623,11 +623,12 @@
                 tuition: parseFloat(urlParams.get('tuition')),
                 projected: parseFloat(urlParams.get('projected')),
                 growth: urlParams.get('growth'),
-                breakEven: urlParams.get('breakeven'),
+                breakEven: urlParams.get('breakeven') + 'mo',
                 fiveYear: parseFloat(urlParams.get('fiveyear')),
                 name: urlParams.get('name') || 'Career Trajectory Strategist'
             });
         }
     </script>
 </body>
+
 </html>
